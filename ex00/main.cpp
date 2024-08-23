@@ -83,6 +83,14 @@ DEBUG_PRINT("------------------ SUBJECT ------------------");
 	j->makeSound();
 	meta->makeSound();
 
+	Cat* catDog = (Cat*)j; // To show that virtual was used.
+	std::cout << "\t";
+	catDog->makeSound();
+
+	Dog* datCog = (Dog*)i; // To show that virtual was used.
+	std::cout << "\t";
+	datCog->makeSound();
+
 DEBUG_PRINT("------------------ SECTION ------------------");
 
 	delete wrongAnimal;
