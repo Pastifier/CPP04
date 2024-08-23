@@ -77,8 +77,10 @@ DEBUG_PRINT("------------------ SUBJECT ------------------");
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
+	
 	std::cout << j->getType() << " " << std::endl;
 	std::cout << i->getType() << " " << std::endl;
+	
 	i->makeSound(); //will output the cat sound!
 	j->makeSound();
 	meta->makeSound();
@@ -87,9 +89,11 @@ DEBUG_PRINT("------------------ SUBJECT ------------------");
 	std::cout << "\t";
 	catDog->makeSound();
 
-	Dog* datCog = (Dog*)i; // To show that virtual was used.
+	Dog* datCog = (Dog*)i; // Unneeded test, cuz virtual was used inside
+	                       // the Animal class, but eh, I'll add it anyway.
 	std::cout << "\t";
 	datCog->makeSound();
+
 
 DEBUG_PRINT("------------------ SECTION ------------------");
 
