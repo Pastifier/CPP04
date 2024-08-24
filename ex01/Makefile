@@ -29,8 +29,10 @@ clean:
 
 ifeq ($(valgrind_answer),y)
 valgrind:
+	@make all
 	@printf "$(CURSIVE)Running valgrind...$(RESET)\n"
 	valgrind --leak-check=full ./$(NAME)
+	@make clean
 endif
 
 re: clean all

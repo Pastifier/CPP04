@@ -28,8 +28,10 @@ clean:
 	@printf "$(YELLOW)Executable removed.$(RESET)\n"
 
 valgrind:
+	@make all
 	@printf "$(CURSIVE)Running valgrind...$(RESET)\n"
 	valgrind --leak-check=full ./$(NAME)
+	@make clean
 
 re: clean all
 

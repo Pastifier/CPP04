@@ -27,11 +27,11 @@ clean:
 	rm -rf $(NAME)
 	@printf "$(YELLOW)Executable removed.$(RESET)\n"
 
-ifeq ($(valgrind_answer),y)
 valgrind:
+	@make all
 	@printf "$(CURSIVE)Running valgrind...$(RESET)\n"
 	valgrind --leak-check=full ./$(NAME)
-endif
+	@make clean
 
 re: clean all
 
