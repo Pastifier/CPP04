@@ -61,7 +61,6 @@ Cat& Cat::operator=(const Cat& rhs) {
 			_cogito = NULL;
 			DEBUG_PRINT("WARNING: Field `_cogito` is pointing to `NULL`");
 		} else {
-			_cogito = new Brain();
 			*_cogito = *(rhs._cogito);
 		}
 	} catch (const std::exception& e) {
