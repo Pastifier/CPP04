@@ -13,7 +13,7 @@ RESET		=	\e[0m
 CURSIVE		=	\e[33;3m
 
 # Targets
-SRC := AMateria.cpp ICharacter.cpp IMateria.cpp Character.cpp IMateriaSource.cpp MateriaSource.cpp Ice.cpp Cure.cpp main.cpp
+SRC := AMateria.cpp Character.cpp MateriaList.cpp MateriaSource.cpp Ice.cpp Cure.cpp main.cpp
 INCLUDES := $(SRC:.cpp=.hpp)
 
 # Rules
