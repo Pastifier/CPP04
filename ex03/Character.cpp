@@ -1,5 +1,6 @@
 #include "Character.hpp"
 #include "AMateria.hpp"
+#include "MateriaList.hpp"
 #include <iostream>
 
 #define PRINT(X) std::cout << X << std::endl
@@ -49,8 +50,11 @@ Character& Character::operator=(Character const & rhs) {
 }
 
 Character::~Character() {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 4; i++) {
+		if (materiaExists(_droppedMaterias, _slots[i]))
+			continue;
 		delete _slots[i];
+	}
 	_referenceCount--;
 	if (_referenceCount == 0)
 		destroyMateriaList(&_droppedMaterias);
@@ -66,12 +70,16 @@ void Character::equip(AMateria* m) {
 		return;
 	}
 	if (m) {
+		int first_empty = -1;
 		for (int i = 0; i < 4; i++) {
-			if (_slots[i] == NULL) {
-				_slots[i] = m;
-				_materiaNum++;
-				break;
-			}
+			if (_slots[i] == m)
+				return;
+			if (first_empty < 0 && _slots[i] == NULL)
+				first_empty = i;
+		}
+		if (first_empty >= 0) {
+			_slots[first_empty] = m;
+			_materiaNum++;
 		}
 	}
 }

@@ -10,3 +10,12 @@ void destroyMateriaList(MateriaList** list) {
 		}
 		*list = NULL;
 }
+
+bool materiaExists(MateriaList* node, AMateria* materia) {
+	while (node) {
+		if (node->content && node->content == materia)
+			return true;
+		node = node->next;
+	}
+	return false;
+}
