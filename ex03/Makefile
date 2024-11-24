@@ -29,7 +29,7 @@ clean:
  
 valgrind:
 	@printf "$(CURSIVE)Running valgrind...$(RESET)\n"
-	valgrind --leak-check=full ./$(NAME)
+	valgrind --leak-check=full --show-mismatched-frees=yes --track-origins=yes ./$(NAME)
 
 re: clean all
 

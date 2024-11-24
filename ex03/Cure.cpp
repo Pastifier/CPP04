@@ -9,8 +9,7 @@ Cure::Cure(Cure const & other) : AMateria(other) {}
 Cure::~Cure() {}
 
 Cure& Cure::operator=(Cure const & rhs) {
-	if (this != &rhs)
-		AMateria::operator=(rhs);
+	(void)rhs;
 	return *this;
 }
 

@@ -8,6 +8,10 @@
 
 int main()
 {
+	Ice myIce;
+	Ice myOtherIce;
+
+	myIce = myOtherIce;
 	IMateriaSource *src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -20,6 +24,8 @@ int main()
 	ICharacter *bob = new Character("bob");
 	me->use(0, *bob);
 	me->use(1, *bob);
+	me->unequip(0);
+	me->unequip(1);
 	delete bob;
 	delete me;
 	delete src;

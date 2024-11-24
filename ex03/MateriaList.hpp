@@ -9,3 +9,4 @@ typedef struct s_MateriaList
 }	MateriaList;
 
 void destroyMateriaList(MateriaList** list);
+bool materiaExists(MateriaList* node, AMateria* materia);
