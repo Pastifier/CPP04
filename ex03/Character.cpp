@@ -5,7 +5,7 @@
 
 #define PRINT(X) std::cout << X << std::endl
 
-int Character::_referenceCount = 0;
+int Character::_instanceCount = 0;
 MateriaList* Character::_droppedMaterias = NULL;
 
 Character::Character() : _name("Cloud") {
@@ -13,7 +13,7 @@ Character::Character() : _name("Cloud") {
 		_slots[i] = NULL;
 	}
 	_materiaNum = 0;
-	_referenceCount++;
+	_instanceCount++;
 }
 
 Character::Character(Character const & other) : _name(other.getName()) {
@@ -22,7 +22,7 @@ Character::Character(Character const & other) : _name(other.getName()) {
 			this->_slots[i] = other._slots[i]->clone();
 	}
 	this->_materiaNum = other._materiaNum;
-	_referenceCount++;
+	_instanceCount++;
 }
 
 Character::Character(std::string const & name) : _name(name) {
@@ -30,7 +30,7 @@ Character::Character(std::string const & name) : _name(name) {
 		_slots[i] = NULL;
 	}
 	_materiaNum = 0;
-	_referenceCount++;
+	_instanceCount++;
 }
 
 Character& Character::operator=(Character const & rhs) {
@@ -55,8 +55,8 @@ Character::~Character() {
 			continue;
 		delete _slots[i];
 	}
-	_referenceCount--;
-	if (_referenceCount == 0)
+	_instanceCount--;
+	if (_instanceCount == 0)
 		destroyMateriaList(&_droppedMaterias);
 }
 

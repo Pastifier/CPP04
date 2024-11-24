@@ -21,6 +21,6 @@ private:
 	std::string _name;
 	int _materiaNum;
 	AMateria* _slots[4];
-	static int _referenceCount;
+	static int _instanceCount;
 	static MateriaList* _droppedMaterias;
 };
