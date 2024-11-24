@@ -6,6 +6,8 @@
 #include "MateriaSource.hpp"
 #include <iostream>
 
+// Credit for tests goes to Hisham, he used them when mock-evaluating me (don't know his github, sadly lol).
+
 void basicTests() {
     std::cout << "===== BASIC TESTS =====" << std::endl;
 
